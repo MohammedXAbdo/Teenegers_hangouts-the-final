@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "132733082278",
+    "firebase_url": "https://double-zenith-280321.firebaseio.com",
+    "project_id": "double-zenith-280321",
+    "storage_bucket": "double-zenith-280321.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132733082278:android:80e008cceb90dbb9e67267",
+        "android_client_info": {
+          "package_name": "com.elshafey.hangouts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132733082278-i4tlac56p55118ktc4nnvfs1o3ops51a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elshafey.hangouts",
+            "certificate_hash": "db5d059c67742e3597324a046645775dea7078f8"
+          }
+        },
+        {
+          "client_id": "132733082278-b3bn6dmaghf74qgk3vgqt9ll3o0hlavs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9mzySmlm0mSpQzm-8bjpD5ud7vY8rTyg"
+        },
+        {
+          "current_key": "AIzaSyBSYhD_judH-J3x4ofQa0Gfn4duuioSs6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132733082278-b3bn6dmaghf74qgk3vgqt9ll3o0hlavs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "132733082278-m9h6cp7p2cu5a3psm8mrqtp9qb3sr5q4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elshafey.googlemaps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132733082278:android:c7df6f0cf7d7ebdce67267",
+        "android_client_info": {
+          "package_name": "com.elshafey.hangouts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132733082278-ufh4c6tm29sa2537lkuc83vmk4pp7982.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elshafey.hangouts",
+            "certificate_hash": "db5d059c67742e3597324a046645775dea7078f8"
+          }
+        },
+        {
+          "client_id": "132733082278-b3bn6dmaghf74qgk3vgqt9ll3o0hlavs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9mzySmlm0mSpQzm-8bjpD5ud7vY8rTyg"
+        },
+        {
+          "current_key": "AIzaSyBSYhD_judH-J3x4ofQa0Gfn4duuioSs6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132733082278-b3bn6dmaghf74qgk3vgqt9ll3o0hlavs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "132733082278-m9h6cp7p2cu5a3psm8mrqtp9qb3sr5q4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elshafey.googlemaps"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

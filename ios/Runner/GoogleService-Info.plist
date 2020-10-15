@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>132733082278-m9h6cp7p2cu5a3psm8mrqtp9qb3sr5q4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.132733082278-m9h6cp7p2cu5a3psm8mrqtp9qb3sr5q4</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>132733082278-ufh4c6tm29sa2537lkuc83vmk4pp7982.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBxzppCAzieemv4N3YASDGt4NuhYyVS6sI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>132733082278</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.elshafey.teenagershangouts</string>
+	<key>PROJECT_ID</key>
+	<string>double-zenith-280321</string>
+	<key>STORAGE_BUCKET</key>
+	<string>double-zenith-280321.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:132733082278:ios:4ae3c7aac56a0055e67267</string>
+	<key>DATABASE_URL</key>
+	<string>https://double-zenith-280321.firebaseio.com</string>
+</dict>
+</plist>
