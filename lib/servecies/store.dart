@@ -22,7 +22,7 @@ class Store {
       constants.score:FieldValue.increment(scores)
     },merge: true);
   }
-  addNarker(Markers markers,MarkerComments markerComments) {
+  addNarker(Markers markers,MarkerComments markerComments,String Question1Justify,String Question151617Justify ) {
     var time = DateTime.now();
     firestore.collection(constants.Markerscollection).document(time.toIso8601String()).setData({
       constants.placeName: markers.placename,
@@ -37,6 +37,7 @@ class Store {
       constants.Question2:markerComments.Question2,
       constants.placeRate:markerComments.PlaceRate,
       constants.time:markerComments.time,
+      //upload questions
       constants.Question3:markerComments.Question3,
       constants.Question4:markerComments.Question4,
       constants.Question5:markerComments.Question5,
@@ -48,6 +49,12 @@ class Store {
       constants.Question11:markerComments.Question11,
       constants.Question12:markerComments.Question12,
       constants.Question13:markerComments.Question13,
+      constants.Question15:markerComments.Question15,
+      constants.Question16:markerComments.Question16,
+      constants.Question17:markerComments.Question17,
+      constants.Question18:markerComments.Question18,
+      constants.Question19:markerComments.Question19,
+      //value for each question
       constants.Value4:markerComments.Value4,
       constants.Value5:markerComments.Value5,
       constants.Value6:markerComments.Value6,
@@ -58,14 +65,18 @@ class Store {
       constants.Value11:markerComments.Value11,
       constants.Value12:markerComments.Value12,
       constants.Value13:markerComments.Value13,
+      //age and gender
       constants.Age:markerComments.Age,
-      constants.Gender:markerComments.Gender
-
+      constants.Gender:markerComments.Gender,
+      //justify
+      constants.Question1Justify:Question1Justify,
+      constants.Question151617Justify:Question151617Justify
     });
   }
-  addMarkerComment(String docId,MarkerComments markerComments){
+  addMarkerComment(String docId,MarkerComments markerComments,String Question1Justify,String Question151617Justifyprovider){
     firestore.collection(constants.Markerscollection).document(docId).collection(constants.MarkersCommentscollection).document().setData({
       constants.uid: markerComments.owneruid,
+      //Questions
       constants.Question1:markerComments.Question1,
       constants.Question2:markerComments.Question2,
       constants.placeRate:markerComments.PlaceRate,
@@ -81,6 +92,12 @@ class Store {
       constants.Question11:markerComments.Question11,
       constants.Question12:markerComments.Question12,
       constants.Question13:markerComments.Question13,
+      constants.Question15:markerComments.Question15,
+      constants.Question16:markerComments.Question16,
+      constants.Question17:markerComments.Question17,
+      constants.Question18:markerComments.Question18,
+      constants.Question19:markerComments.Question19,
+      //value
       constants.Value4:markerComments.Value4,
       constants.Value5:markerComments.Value5,
       constants.Value6:markerComments.Value6,
@@ -91,8 +108,13 @@ class Store {
       constants.Value11:markerComments.Value11,
       constants.Value12:markerComments.Value12,
       constants.Value13:markerComments.Value13,
+      //age and gender
       constants.Age:markerComments.Age,
-      constants.Gender:markerComments.Gender
+      constants.Gender:markerComments.Gender,
+      //justify
+      constants.Question151617Justify:Question151617Justifyprovider,
+      constants.Question1Justify:Question1Justify
+
     });
   }
 

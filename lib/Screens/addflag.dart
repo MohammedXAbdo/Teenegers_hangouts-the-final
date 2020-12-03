@@ -1,8 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:googlemaps/Provider/UserProvider.dart';
+import 'package:googlemaps/Screens/get2Questions.dart';
 import 'package:googlemaps/Screens/waitingWidget.dart';
 import 'package:googlemaps/Widgets/GenderAndAge.dart';
 import 'package:googlemaps/Widgets/add_location_widget.dart';
@@ -50,15 +52,15 @@ class _addflagState extends State<addflag> {
     double width = MediaQuery.of(context).size.width;
     Store store = Store();
     return MultiProvider(
-      providers: [
-        StreamProvider<FirebaseUser>.value(
-          value: FirebaseAuth.instance.onAuthStateChanged,
-        )
-      ],
-      child:
+        providers: [
+          StreamProvider<FirebaseUser>.value(
+            value: FirebaseAuth.instance.onAuthStateChanged,
+          )
+        ],
+        child:
 
-            Material(
-                child: Scaffold(
+        Material(
+            child: Scaffold(
               appBar: AppBar(
                 leading: InkWell(
                     onTap: () {
@@ -87,7 +89,7 @@ class _addflagState extends State<addflag> {
                       color: constants.blackcolor),
                 ),
               ),
-              body: ListView(
+              body: Column(
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: height * 0.03),
@@ -101,7 +103,7 @@ class _addflagState extends State<addflag> {
                               height: height * 0.025,
                               width: width * 0.8,
                               child: StepProgressIndicator(
-                                totalSteps: 6,
+                                totalSteps: 10,
                                 currentStep: value,
                                 size: 25,
                                 padding: 0,
@@ -167,25 +169,26 @@ class _addflagState extends State<addflag> {
                                   answer3: "eating and drinking",
                                   answer4: "others ",
                                   question2:
-                                      '•When do you go to those places? ',
+                                  '•When do you go to those places? ',
                                   answer5: "Early  morning",
                                   answer6: "day of week",
                                   answer7: "seasonal",
                                   answer8: "others",
                                   question3:
-                                      '••	With Whom do you go with and meet their? ',
+                                  '••	With Whom do you go with and meet their? ',
                                   answer9: "Friends",
                                   answer10: "family",
                                   answer11: "Alone ",
                                   answer12: "others",
                                 ),
+
                                 QuestionsImojeSlider(
                                   height: height,
                                   width: width,
                                   Question1:
-                                      "I can freely move around in this place?",
+                                  "I can freely move around in this place?",
                                   Question2:
-                                      'There is no direct control on me from adult in this place?',
+                                  'There is no direct control on me from adult in this place?',
                                   Question3: 'I feel safe in this place ? ',
                                   pagenumber: 1,
                                 ),
@@ -193,7 +196,7 @@ class _addflagState extends State<addflag> {
                                   height: height,
                                   width: width,
                                   Question1:
-                                      'I can express myself freely in this place? ',
+                                  'I can express myself freely in this place? ',
                                   Question2: 'I feel excited in this places? ',
                                   Question3: 'I feel motivated in this place?',
                                   pagenumber: 2,
@@ -201,22 +204,31 @@ class _addflagState extends State<addflag> {
                                 QuestionsImojeSlider(
                                   height: height,
                                   width: width,
-                                  Question1: 'I Feel accepted?',
+                                  Question1: 'I Feel accepted and welcomed ?',
                                   Question2:
-                                      'There is a lot of recreational opportunities here?',
+                                  'There is a lot of recreational opportunities here?',
                                   Question3:
-                                      'I can see and interact  with other teens easily? ',
+                                  'I can see and interact  with other teens easily? ',
                                   pagenumber: 3,
                                 ),
                                 getLocationRateImoje(
                                   width: width,
                                   height: height,
                                   question13:
-                                      'I can do different activities in this place?',
+                                  'I can do different activities in this place?',
+                                ),
+                                QuestionsImojeSlider(height: height,width: width,Question1:'Teens in this place interest in new experiences and thrill-seeking?' ,
+                                  Question2:'Teens sometimes cause troubles/negative behaviours in this place?',
+                                  Question3: 'No places are available for the Teens and their activities in public spaces? ',pagenumber: 4,),
+
+                                get2Questions(width: width, height: height,question1: "What are the behaviours you dislike (or disapprove of) that happen in this place?",
+                                  answer1: "Fights",answer2: "drugs",answer3: "smoking",answer4: "drinking alcohol",question2: "Have you or any of your friends been a victim of any of the following in or near this place?",
+                                  answer5: "•Suffered from teens having physical fights",answer6: "•Been robbed in the street",
+                                  answer7: "•Been physically assaulted or wounded",answer8: "•Been sexually harassed (verbal or physical)",
                                 ),
                                 GenderAndAge(width: width,height: height,question1: "What is Your Age?",answer1: "13-14",
-                                answer2: "15-16",answer3: "16-17",answer4:"18-19" ,question2: "What is Your Gender?",
-                                answer5: "Male",answer6: "Female",
+                                  answer2: "15-16",answer3: "16-17",answer4:"18-19" ,question2: "What is Your Gender?",
+                                  answer5: "Male",answer6: "Female",
                                 )
                               ],
                             ),
@@ -233,110 +245,128 @@ class _addflagState extends State<addflag> {
                         builder: (context) => FlatButton(
                           onPressed: () {
                             final addflagprovider =
-                                Provider.of<Addflagprovider>(context,
-                                    listen: false);
+                            Provider.of<Addflagprovider>(context,
+                                listen: false);
                             String adrees = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .adress1;
+                            String Question151617Justify;
                             String imojeRate = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .imojeCurrentIndex;
                             String question1 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question1;
                             String question2 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question2;
+                            String question18 = Provider.of<Addflagprovider>(context,listen: false).question18;
+                            String question19 = Provider.of<Addflagprovider>(context,listen: false).question19;
                             String question3 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question3;
                             String question4 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question4;
                             String question5 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question5;
                             String question6 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question6;
                             String question7 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question7;
                             String question8 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question8;
                             String question9 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question9;
                             String question10 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question10;
                             String question11 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question11;
                             String question12 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question12;
                             String question13 = Provider.of<Addflagprovider>(
-                                    context,
-                                    listen: false)
+                                context,
+                                listen: false)
                                 .question13;
+                            String question15 = Provider.of<Addflagprovider>(
+                                context,
+                                listen: false)
+                                .question15;
+                            String question16 = Provider.of<Addflagprovider>(
+                                context,
+                                listen: false)
+                                .question16;
+                            String question17 = Provider.of<Addflagprovider>(
+                                context,
+                                listen: false)
+                                .question17;
                             int value4 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value4;
                             int value5 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value5;
                             int value6 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value6;
                             int value7 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value7;
                             int value8 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value8;
                             int value9 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value9;
                             int value10 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value10;
                             int value11 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value11;
                             int value12 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value12;
                             int value13 = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .value13;
                             double lat = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .lat;
                             double long = Provider.of<Addflagprovider>(context,
-                                    listen: false)
+                                listen: false)
                                 .lang;
                             var user = Provider.of<FirebaseUser>(context,
                                 listen: false);
                             String Age = Provider.of<Addflagprovider>(context,listen: false).age;
                             String Gender = Provider.of<Addflagprovider>(context,listen: false).gender;
+                            String Question1Justifyprovider = Provider.of<Addflagprovider>(context,listen: false).question1Justify;
+                            String Question151617Justifyprovider = Provider.of<Addflagprovider>(context,listen: false).question151617Justify;
                             String placeaddress;
-                            if (currentindex == 6) {
+                            String Question1Justify ;
+                            if (currentindex == 8) {
                               var time = DateTime.now();
                               if (ConnectionState.active != null) {
                                 store.addNarker(
@@ -357,6 +387,11 @@ class _addflagState extends State<addflag> {
                                         question11,
                                         question12,
                                         question13,
+                                        question15,
+                                        question16,
+                                        question17,
+                                        question18,
+                                        question19,
                                         imojeRate,
                                         value4,
                                         value5,
@@ -368,10 +403,10 @@ class _addflagState extends State<addflag> {
                                         value11,
                                         value12,
                                         value13,Age
-                                    ,Gender));
+                                        ,Gender),Question1Justifyprovider,Question151617Justifyprovider);
                                 store.updateScore(
                                     user.uid,
-                                        (value * 10));
+                                    (value * 10));
                                 controller.dispose();
                                 setState(() {
                                   currentindex = -1;
@@ -382,9 +417,9 @@ class _addflagState extends State<addflag> {
                               }
                             }
                             if (currentindex == 0 &&
-                                    adrees != null &&
-                                    lat != null &&
-                                    long != null ||
+                                adrees != null &&
+                                lat != null &&
+                                long != null ||
                                 currentindex == 1 &&
                                     question1 != null &&
                                     question2 != null &&
@@ -412,45 +447,113 @@ class _addflagState extends State<addflag> {
                                     value12 != 0||
                                 currentindex == 5 &&
                                     question13 != null &&
-                            value13 != 0 &&
-                                    imojeRate != null) {
+                                    value13 != 0 &&
+                                    imojeRate != null||currentindex==6||currentindex==7||currentindex==8) {
+                              if (currentindex == 5) {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      content: TextField(
+                                        onChanged: (str) {
+                                          setState(() {
+                                            Question151617Justify = str;
+                                          });
+                                        },
+                                      ),
+                                      title: AutoSizeText(
+                                        'Specify For Questions!',
+                                        maxLines: 1,
+                                      ),
+                                      actions: <Widget>[
+                                        FlatButton(
+                                            onPressed: () {
+                                              // print(Question1Justify);
+                                              if (Question151617Justify != null) {
+                                                addflagprovider.Question151617Justify(
+                                                    Question151617Justify);
+                                                Navigator.pop(context);
+                                              }
+                                            },
+                                            child: Text('Ok')),
+                                        FlatButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('Skip'))
+                                      ],
+                                    ));
+                              }
+                              if (currentindex == 1) {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      content: TextField(
+                                        onChanged: (str) {
+                                          setState(() {
+                                            Question1Justify = str;
+                                          });
+                                        },
+                                      ),
+                                      title: AutoSizeText(
+                                        'Add Any Other Comments..',
+                                        maxLines: 1,
+                                      ),
+                                      actions: <Widget>[
+                                        FlatButton(
+                                            onPressed: () {
+                                              print(Question1Justify);
+                                              if (Question1Justify != null) {
+                                                addflagprovider.Question1Justify(
+                                                    Question1Justify);
+                                                Navigator.pop(context);
+                                              }
+                                            },
+                                            child: Text('Ok')),
+                                        FlatButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('Skip'))
+                                      ],
+                                    ));
+                              }
                               if (currentindex == 0 &&
                                   lat != null &&
                                   long != null) {
                                 showDialog(
                                     context: context,
                                     builder: (context) => AlertDialog(
-                                          content: TextField(
-                                            onChanged: (str) {
-                                              setState(() {
-                                                placeaddress = str;
-                                              });
+                                      content: TextField(
+                                        onChanged: (str) {
+                                          setState(() {
+                                            placeaddress = str;
+                                          });
+                                        },
+                                      ),
+                                      title: Text(
+                                          'Enter Place Name\n Or Skip'),
+                                      actions: <Widget>[
+                                        FlatButton(
+                                            onPressed: () {
+                                              print(placeaddress);
+                                              if (placeaddress != null) {
+                                                addflagprovider.getaddress(
+                                                    placeaddress);
+                                                Navigator.pop(context);
+                                              }
                                             },
-                                          ),
-                                          title: Text(
-                                              'Enter Place Name\n Or Skip'),
-                                          actions: <Widget>[
-                                            FlatButton(
-                                                onPressed: () {
-                                                  print(placeaddress);
-                                                  if (placeaddress != null) {
-                                                    addflagprovider.getaddress(
-                                                        placeaddress);
-                                                    Navigator.pop(context);
-                                                  }
-                                                },
-                                                child: Text('Ok')),
-                                            FlatButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text('Skip'))
-                                          ],
-                                        ));
+                                            child: Text('Ok')),
+                                        FlatButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('Skip'))
+                                      ],
+                                    ));
                               }
                               setState(() {
                                 currentindex++;
-                                if (value < 6) {
+                                if (value < 9) {
                                   value++;
                                 }
                               });
@@ -462,20 +565,20 @@ class _addflagState extends State<addflag> {
                               if (lat == null && long == null) {
                                 Scaffold.of(context).showSnackBar(SnackBar(
                                     content: Text(
-                                  "Please Add Marker on Map",
-                                  style: TextStyle(fontFamily: 'font'),
-                                )));
+                                      "Please Add Marker on Map",
+                                      style: TextStyle(fontFamily: 'font'),
+                                    )));
                               } else
                                 Scaffold.of(context).showSnackBar(SnackBar(
                                     content: Text(
-                                  "Please Apply Empty fields",
-                                  style: TextStyle(fontFamily: 'font'),
-                                )));
+                                      "Please Apply Empty fields",
+                                      style: TextStyle(fontFamily: 'font'),
+                                    )));
                             }
                           },
                           child: Center(
                             child: Text(
-                              currentindex == 6 ? "Finish" : "Next",
+                              currentindex == 8 ? "Finish" : "Next",
                               style: TextStyle(fontFamily: 'font'),
                             ),
                           ),

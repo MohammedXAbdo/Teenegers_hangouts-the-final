@@ -7,10 +7,10 @@ import 'package:googlemaps/constants.dart';
 import 'package:googlemaps/models/Markers.dart';
 import 'package:provider/provider.dart';
 class add_location_widget extends StatefulWidget {
- final double width;
+  final double width;
   final double height;
 
-   add_location_widget({
+  add_location_widget({
     Key key,
     @required this.height,
     @required this.width,
@@ -58,7 +58,7 @@ class _add_location_widgetState extends State<add_location_widget> {
                     context: context,
                     apiKey: constants.kGoogleApiKey,
                     mode: Mode
-                        .overlay, // Mode.fullscreen
+                        .fullscreen, // Mode.fullscreen
                     language: "Ar",
                     onError: (e) {
                       print(
@@ -70,17 +70,17 @@ class _add_location_widgetState extends State<add_location_widget> {
                     ]);
 
 
-                  GoogleMapsPlaces _places = new GoogleMapsPlaces(
-                      apiKey: constants.kGoogleApiKey); //Same API_KEY as above
-                  PlacesDetailsResponse detail =
-                  await _places.getDetailsByPlaceId(p.placeId);
-                  double latitude = detail.result.geometry.location.lat;
-                  double longitude = detail.result.geometry.location.lng;
-                  String address = p.description;
-                  googleMapController.animateCamera(CameraUpdate.newCameraPosition(
-                      CameraPosition(
-                          target: LatLng(latitude, longitude), zoom: 17, bearing: 90)));
-                         addflagprovider.getaddress(address);
+                GoogleMapsPlaces _places = new GoogleMapsPlaces(
+                    apiKey: constants.kGoogleApiKey); //Same API_KEY as above
+                PlacesDetailsResponse detail =
+                await _places.getDetailsByPlaceId(p.placeId);
+                double latitude = detail.result.geometry.location.lat;
+                double longitude = detail.result.geometry.location.lng;
+                String address = p.description;
+                googleMapController.animateCamera(CameraUpdate.newCameraPosition(
+                    CameraPosition(
+                        target: LatLng(latitude, longitude), zoom: 17, bearing: 90)));
+                addflagprovider.getaddress(address);
 
 
 
@@ -116,6 +116,9 @@ class _add_location_widgetState extends State<add_location_widget> {
           ),
           Expanded(
             child: GoogleMap(
+//              scrollGesturesEnabled: true,
+//              zoomGesturesEnabled: true,
+//              zoomControlsEnabled: true,
               markers: Set.from(markers),
               mapType: MapType.normal,
               onMapCreated: _OnMapCreated,

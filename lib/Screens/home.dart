@@ -911,84 +911,71 @@ class _homeState extends State<home> {
                                 ),
                               ],
                             ),
-                           Positioned(
-                             bottom: height * 0.09,
+                            Positioned(
+                              bottom: height * 0.09,
+                              left: width * 0.03,
+                              child: Row(
+                                children: <Widget>[
+                                  IgnorePointer(
+                                    ignoring: false,
+//                                        ignoring: clickable == null
+//                                            ? true
+//                                            : clickable, //userprovider.addplace,
 
-                                child: Container(
-                                  width: width,
-                                  child: Row(
-                                    children: <Widget>[
-                                       Positioned(
-                                         bottom: height * 0.09,
-                                         left: width * 0.03,
-                                         child: IgnorePointer(
-                                            ignoring: clickable == null
-                                                ? true
-                                                : clickable, //userprovider.addplace,
-                                            child: Opacity(
-                                              opacity:
-                                                    counter == null ? 0 : counter==5?1:0,
-                                              child: AvatarGlow(
-                                                glowColor: Colors.black,
-                                                endRadius: 49,
-                                                child: FloatingActionButton(
-                                                  heroTag: 'btn1',
-                                                  backgroundColor:
-                                                      constants.primarycolor,
-                                                  child: Center(
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                          .symmetric(horizontal: 4),
-                                                      child: Container(
-                                                        child: AutoSizeText(
-                                                          "  Add    place",
-                                                          softWrap: true,
-                                                          maxLines: 2,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  onPressed: () {
-                                                    Navigator.pushNamed(
-                                                        context, addflag.id);
-                                                  },
-                                                  elevation: 2,
-                                                  tooltip: "Add Place",
+                                    child: Opacity(
+                                      opacity:
+//                                              counter == null ? 0 : counter==2?1:0,
+                                      1,
+                                      child: AvatarGlow(
+                                        glowColor: Colors.black,
+                                        endRadius: 49,
+                                        child: FloatingActionButton(
+                                          heroTag: 'btn1',
+                                          backgroundColor:
+                                          constants.primarycolor,
+                                          child: Center(
+                                            child: Padding(
+                                              padding: const EdgeInsets
+                                                  .symmetric(horizontal: 4),
+                                              child: Container(
+                                                child: AutoSizeText(
+                                                  "  Add    place",
+                                                  softWrap: true,
+                                                  maxLines: 2,
                                                 ),
                                               ),
                                             ),
                                           ),
-                                       ),
-
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            Positioned(
-                              bottom: height * 0.09,
-                              right: width*0.3,
-                              left: width*0.3,
-                              child: Center(
-
-                                child: IgnorePointer(
-                                  ignoring: true,
-                                  child: Opacity(
-                                    opacity: counter == null ? 1 : counter==5?0:1,
-                                    child: AvatarGlow(
-                                      animate: userprovider.addplace == false
-                                          ? true
-                                          : false,
-                                      endRadius: 90,
-                                      glowColor: Colors.black,
-                                      child: FloatingActionButton.extended(
-
-                                        heroTag: 'btn2',
-                                        label: Text("Rank pin Places"),
-                                        backgroundColor: Colors.black26,
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, addflag.id);
+                                          },
+                                          elevation: 2,
+                                          tooltip: "Add Place",
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
+
+                                  IgnorePointer(
+                                    ignoring: true,
+                                    child: Opacity(
+                                      opacity: counter == null ? 1 : counter==2?0:1,
+                                      child: AvatarGlow(
+                                        animate: userprovider.addplace == false
+                                            ? true
+                                            : false,
+                                        endRadius: 90,
+                                        glowColor: Colors.black,
+                                        child: FloatingActionButton.extended(
+                                          heroTag: 'btn2',
+                                          label: Text("Rank pin Places"),
+                                          backgroundColor: Colors.black26,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

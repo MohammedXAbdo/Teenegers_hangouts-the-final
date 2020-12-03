@@ -1,10 +1,14 @@
 
+
 import 'package:flutter/cupertino.dart';
 
 class Addflagprovider extends ChangeNotifier{
   String imojeCurrentIndex;
   String adress1 ;
   String question1;
+  String question18;
+  String question19;
+  String question1Justify;
   String question2;
   String question3;
   String question4;
@@ -17,6 +21,10 @@ class Addflagprovider extends ChangeNotifier{
   String question11;
   String question12;
   String question13;
+  String question15;
+  String question16;
+  String question17;
+  String question151617Justify;
   String age;
   String gender;
   int value4;
@@ -173,6 +181,7 @@ class Addflagprovider extends ChangeNotifier{
     notifyListeners();
   }
 
+
   question1Result(String quest){
     question1 = quest;
     notifyListeners();
@@ -195,6 +204,26 @@ class Addflagprovider extends ChangeNotifier{
   }
   question13Result(String quest){
     question13 = quest;
+    notifyListeners();
+  }
+  question19Result(String quest){
+    question19 = quest;
+    notifyListeners();
+  }
+  question18Result(String quest){
+    question18 = quest;
+    notifyListeners();
+  }
+  question15Result(String quest){
+    question15 = quest;
+    notifyListeners();
+  }
+  question16Result(String quest){
+    question16 = quest;
+    notifyListeners();
+  }
+  question17Result(String quest){
+    question17 = quest;
     notifyListeners();
   }
   question14Result(String quest){
@@ -244,6 +273,15 @@ class Addflagprovider extends ChangeNotifier{
   }
   getaddress(String adress){
     adress1=adress;
+    notifyListeners();
+  }
+
+  Question1Justify(String adress){
+    question1Justify=adress;
+    notifyListeners();
+  }
+  Question151617Justify(String adress){
+    question151617Justify=adress;
     notifyListeners();
   }
 }

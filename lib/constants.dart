@@ -36,6 +36,13 @@ class constants {
   static const String Question11 = "Question11";
   static const String Question12 = "Question12";
   static const String Question13 = "Question13";
+  static const String Question15 = "Question15";
+  static const String Question16 = "Question16";
+  static const String Question17 = "Question17";
+  static const String Question1Justify = "Question1Justify";
+  static const String Question151617Justify = "Question151617Justify";
+  static const String Question18 = "Question18";
+  static const String Question19 = "Question19";
   static const String Value4 = "Value4";
   static const String Value5 = "Value5";
   static const String Value6 = "Value6";
